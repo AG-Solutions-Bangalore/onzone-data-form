@@ -50,11 +50,10 @@ export const BenefitsList: FC = () => {
         })}
       </div>
 
-      {/* Signature: Style Belongs to You */}
-      <div className="mt-8 sm:mt-10 lg:mt-12 select-none">
+      {/* Signature: Style Belongs to You (only visible on desktop / laptop) */}
+      <div className="hidden lg:block mt-8 sm:mt-10 lg:mt-12 select-none">
         <p className="font-['Great_Vibes'] text-[34px] sm:text-[42px] leading-tight text-[#a98552] -rotate-6 transform origin-bottom-left transition-transform hover:scale-105 duration-300">
-          Style
-          <br className="sm:hidden" /> Belongs to You
+          Style Belongs to You
         </p>
       </div>
     </div>

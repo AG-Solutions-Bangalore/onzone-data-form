@@ -379,6 +379,47 @@
   animation: scrollBounce 1.6s ease-in-out infinite;
 }
 
+/* Auto shine sweep for primary buttons (e.g. form submit). */
+@keyframes btnShine {
+  0% {
+    transform: translateX(-160%) skewX(-20deg);
+  }
+  55%,
+  100% {
+    transform: translateX(280%) skewX(-20deg);
+  }
+}
+
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.btn-shine::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 45%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: translateX(-160%) skewX(-20deg);
+  animation: btnShine 2.8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.btn-shine:disabled::after {
+  animation-play-state: paused;
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-shine::after {
+    animation: none;
+  }
+}
+
 .backdrop-glass {
   background: rgba(241, 234, 224, 0.88);
   backdrop-filter: blur(12px);

@@ -7,11 +7,11 @@ import { DatePicker } from '@/components/ui/date-picker';
 import { useCreateFormData } from '@/modules/form-data/hooks/use-create-form-data';
 import { FORM_DATA_DEFAULTS, type FormDataFormValues } from '@/modules/form-data/types/form-data.types';
 
-/** Mobile validation: supports +91 format and 10 to 15 digits. */
+/** Mobile validation: allows only 10 to 12 digits (supports +91 format). */
 function validateIndianMobile(value: string): string | true {
   const clean = value.replace(/\D/g, '');
-  if (!clean || clean.length < 10 || clean.length > 15) {
-    return 'Enter valid 10-15 digit mobile number';
+  if (!clean || clean.length < 10 || clean.length > 12) {
+    return 'Enter valid 10-12 digit mobile number';
   }
   return true;
 }
@@ -149,7 +149,7 @@ export const DetailsForm: FC = () => {
           <button
             type="submit"
             disabled={createFormData.isPending}
-            className="group mt-3.5 sm:mt-4 flex h-[44px] sm:h-[48px] w-full items-center justify-center gap-2 rounded-full bg-[#181615] hover:bg-[#2a2622] text-[#f7f3ec] shadow-md transition-all duration-300 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-60 cursor-pointer"
+            className="group btn-shine mt-3.5 sm:mt-4 flex h-[44px] sm:h-[48px] w-full items-center justify-center gap-2 rounded-full bg-[#181615] hover:bg-[#2a2622] text-[#f7f3ec] shadow-md transition-all duration-300 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-60 cursor-pointer"
           >
             <span className="font-serif text-[15px] sm:text-[16px] font-normal italic tracking-wide">
               {createFormData.isPending ? 'Submitting…' : 'Continue'}
