@@ -13,11 +13,21 @@ export const FORM_TYPE: FormType = import.meta.env.VITE_FORM_TYPE === 'family' ?
 /**
  * POST create-form-data.
  * Empty optional strings are omitted so the backend receives only filled fields.
+ *
+ * Hard-guards the required fields here too, so an empty name/mobile can never
+ * reach the backend even if a UI validation path is ever bypassed.
  */
 export async function createFormData(payload: CreateFormDataPayload): Promise<FormDataRecord> {
+  const fullName = payload.full_name.trim();
+  const mobileNo = payload.mobile_no.trim();
+  const mobileDigits = mobileNo.replace(/\D/g, '');
+  if (!fullName) throw new Error('Full name is required');
+  if (mobileDigits.length < 10 || mobileDigits.length > 12) {
+    throw new Error('Enter valid 10-12 digit mobile number');
+  }
   const body: CreateFormDataPayload = {
-    full_name: payload.full_name.trim(),
-    mobile_no: payload.mobile_no.trim(),
+    full_name: fullName,
+    mobile_no: mobileNo,
     form_type: FORM_TYPE,
   };
   const email = payload.email_id?.trim();

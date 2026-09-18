@@ -1,3 +1,4 @@
+'use no memo';
 import { Controller, useForm, type SubmitHandler } from 'react-hook-form';
 import { User, Phone, Mail, CalendarDays, Gift, ArrowRight } from 'lucide-react';
 import type { FC } from 'react';
