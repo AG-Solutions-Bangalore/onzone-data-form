@@ -169,7 +169,7 @@
     font-family: var(--serif);
     font-weight: 700;
     font-style: normal;
-    text-transform: uppercase;
+    text-transform: none;
   }
 
   .font-script {
