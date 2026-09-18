@@ -1,7 +1,7 @@
-'use no memo';
 import { Controller, useForm, type SubmitHandler } from 'react-hook-form';
 import { User, Phone, Mail, CalendarDays, Gift, ArrowRight } from 'lucide-react';
 import type { FC } from 'react';
+import { useState } from 'react';
 import { FormField } from './FormField';
 import { PrivacyNote } from './PrivacyNote';
 import { DatePicker } from '@/components/ui/date-picker';
@@ -18,6 +18,11 @@ function validateIndianMobile(value: string): string | true {
 }
 
 export const DetailsForm: FC = () => {
+  // Bumped after every successful submit so the whole form remounts.
+  // Fresh mount always re-attaches input refs, which re-registers every
+  // field (with its rules) into React Hook Form — this keeps submit-time
+  // validation working no matter how renders get memoized.
+  const [formKey, setFormKey] = useState(0);
   const {
     register,
     handleSubmit,
@@ -39,7 +44,10 @@ export const DetailsForm: FC = () => {
         doa: values.doa.trim() || undefined,
       },
       {
-        onSuccess: () => reset(),
+        onSuccess: () => {
+          reset();
+          setFormKey((k) => k + 1);
+        },
       },
     );
   };
@@ -60,6 +68,7 @@ export const DetailsForm: FC = () => {
 
         {/* Form Interactive Fields */}
         <form
+          key={formKey}
           onSubmit={(e) => void handleSubmit(onSubmit)(e)}
           noValidate
           className="mt-3.5 sm:mt-4 space-y-2 sm:space-y-5"
