@@ -22,10 +22,11 @@ export const DetailsForm: FC = () => {
     handleSubmit,
     reset,
     control,
-    formState: { errors },
-  } = useForm<FormDataFormValues>({ defaultValues: FORM_DATA_DEFAULTS });
+    formState: { errors, isValid, isDirty },
+  } = useForm<FormDataFormValues>({ mode: 'onTouched', defaultValues: FORM_DATA_DEFAULTS });
 
   const createFormData = useCreateFormData();
+  const isSubmitDisabled = !isDirty || !isValid || createFormData.isPending;
 
   const onSubmit: SubmitHandler<FormDataFormValues> = (values) => {
     createFormData.mutate(
@@ -101,7 +102,6 @@ export const DetailsForm: FC = () => {
             autoComplete="email"
             error={errors.email_id?.message}
             {...register('email_id', {
-              required: 'Email address is required',
               pattern: {
                 value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
                 message: 'Enter a valid email address',
@@ -148,7 +148,7 @@ export const DetailsForm: FC = () => {
           {/* Continue Button */}
           <button
             type="submit"
-            disabled={createFormData.isPending}
+            disabled={isSubmitDisabled}
             className="group btn-shine mt-3.5 sm:mt-4 flex h-[44px] sm:h-[48px] w-full items-center justify-center gap-2 rounded-full bg-[#181615] hover:bg-[#2a2622] text-[#f7f3ec] shadow-md transition-all duration-300 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-60 cursor-pointer"
           >
             <span className="font-serif text-[15px] sm:text-[16px] font-normal italic tracking-wide">

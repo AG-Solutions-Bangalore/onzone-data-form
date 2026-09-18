@@ -7,7 +7,11 @@
  *   email_id  - optional
  *   dob       - optional, YYYY-MM-DD
  *   doa       - optional, YYYY-MM-DD (date of anniversary)
+ *   form_type - required, "client" | "family"
  */
+
+/** Which form this submission belongs to. Anything that isn't "family" is treated as "client". */
+export type FormType = 'client' | 'family';
 
 /** Exact payload sent to `POST /create-form-data`. */
 export interface CreateFormDataPayload {
@@ -16,6 +20,8 @@ export interface CreateFormDataPayload {
   email_id?: string;
   dob?: string;
   doa?: string;
+  /** Optional for callers — `createFormData` always fills it from `FORM_TYPE`. */
+  form_type?: FormType;
 }
 
 /** Form values bound to the inputs (all strings; dates come from <input type="date"> as YYYY-MM-DD). */
@@ -46,5 +52,6 @@ export interface FormDataRecord {
   email_id?: string;
   dob?: string;
   doa?: string;
+  form_type?: FormType;
   [key: string]: unknown;
 }
