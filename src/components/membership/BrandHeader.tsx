@@ -1,49 +1,14 @@
 import type { FC } from 'react';
 
-/** ONZONE Logo Lockup: Geometric 'Z' Monogram + Wordmark + Tagline */
+/** ONZONE Logo: uses the real brand mark from `public/logo.svg` */
 export const BrandLogo: FC<{ className?: string }> = ({ className = '' }) => {
   return (
-    <div
-      className={`flex flex-row items-center gap-2.5 sm:gap-3 lg:flex-col lg:items-start lg:gap-0 select-none ${className}`}
-    >
-      {/* Geometric 'Z' emblem with signature red accent slash */}
-      <svg
-        viewBox="0 0 88 80"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-8 sm:h-9 w-auto text-[#171513] dark:text-[#f7f3ec] shrink-0"
-        aria-label="ONZONE"
-        role="img"
-      >
-        {/* Top horizontal and upper diagonal */}
-        <path
-          d="M16 10 H72 L42 48 H26 L52 16 H16 V10Z"
-          fill="currentColor"
-        />
-        {/* Bottom horizontal and lower diagonal */}
-        <path
-          d="M72 70 H16 L46 32 H62 L36 64 H72 V70Z"
-          fill="currentColor"
-        />
-        {/* Center vibrant red accent cut */}
-        <path
-          d="M44 19 L30 61 H38 L52 19 H44Z"
-          fill="#D32F2F"
-        />
-      </svg>
-
-      {/* Brand Text: to the right of Z on mobile, below Z on desktop */}
-      <div className="flex flex-col items-start lg:mt-1.5">
-        {/* Wordmark */}
-        <span className="font-serif text-[15px] sm:text-[16px] lg:text-[17px] font-bold tracking-[0.24em] text-[#171513] dark:text-[#f7f3ec] leading-tight uppercase">
-          ONZONE
-        </span>
-
-        {/* Subtitle */}
-        <span className="font-sans text-[7.5px] font-medium tracking-[0.32em] text-[#77736d] dark:text-[#a8a094] uppercase leading-none mt-0.5">
-          TIMELESS ELEGANCE
-        </span>
-      </div>
+    <div className={`flex flex-row items-center select-none ${className}`}>
+      <img
+        src="/logo.svg"
+        alt="Onzone — Timeless Elegance"
+        className="h-8 sm:h-9 lg:h-10 w-auto shrink-0 object-contain"
+      />
     </div>
   );
 };

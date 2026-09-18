@@ -56,6 +56,13 @@ export const DetailsForm: FC = () => {
     <div className="relative w-full max-w-[390px] sm:max-w-[420px] lg:max-w-[390px] xl:max-w-[420px] rounded-[28px] sm:rounded-[32px] bg-white/40 dark:bg-white/10 p-2 sm:p-2.5 backdrop-blur-xl border border-white/70 dark:border-white/15 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.2)]">
       {/* Inner Frosted Cream Card */}
       <div className="relative rounded-[22px] sm:rounded-[26px] bg-[#fcfaf6]/94 dark:bg-[#16233d]/94 p-5 sm:p-6 lg:p-6 border border-[#ede6dc]/90 dark:border-white/10 shadow-inner flex flex-col">
+        {/* Form Logo */}
+        <img
+          src="/logo.svg"
+          alt="Onzone"
+          className="h-9 sm:h-10 w-auto self-start object-contain"
+        />
+
         {/* Form Title */}
         <h2 className="font-serif text-[26px] sm:text-[30px] font-normal leading-tight tracking-tight text-[#171513] dark:text-[#f7f3ec]">
           Your Details

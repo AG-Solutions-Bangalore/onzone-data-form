@@ -37,7 +37,8 @@ export function LeadForm() {
       onSubmit={(e) => void handleSubmit(onSubmit)(e)}
       className="w-full max-w-md rounded-lg border border-border bg-card p-6 text-card-foreground shadow-sm"
     >
-      <p className="eyebrow">Get in touch</p>
+      <img src="/logo.svg" alt="Onzone" className="h-9 w-auto object-contain" />
+      <p className="eyebrow mt-4">Get in touch</p>
       <h2 className="mt-2 text-xl">Request a callback</h2>
 
       <div className="mt-4 space-y-4">

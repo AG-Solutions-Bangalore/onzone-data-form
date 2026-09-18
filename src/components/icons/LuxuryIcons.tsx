@@ -33,17 +33,11 @@ export function OnzoneMonogram({ className = 'w-10 h-10', ...props }: SVGProps<S
   );
 }
 
-/** Full brand lockup: Monogram + ONZONE + TIMELESS ELEGANCE */
+/** Full brand lockup: real ONZONE logo from `public/logo.svg` */
 export function OnzoneBrandLogo({ className = 'flex flex-col items-start' }: { className?: string }) {
   return (
     <div className={className}>
-      <OnzoneMonogram className="w-11 h-10 text-[#121212] dark:text-white" />
-      <span className="font-serif font-bold tracking-[0.2em] text-lg text-[#121212] dark:text-white mt-1 leading-none uppercase">
-        ONZONE
-      </span>
-      <span className="font-sans text-[8px] tracking-[0.3em] font-medium text-[#78716c] dark:text-[#a8a094] uppercase mt-1">
-        Timeless Elegance
-      </span>
+      <img src="/logo.svg" alt="Onzone — Timeless Elegance" className="h-10 w-auto object-contain" />
     </div>
   );
 }
