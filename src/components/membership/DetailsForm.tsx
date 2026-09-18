@@ -53,20 +53,19 @@ export const DetailsForm: FC = () => {
   };
 
   return (
-    <div className="relative w-full max-w-[390px] sm:max-w-[420px] lg:max-w-[390px] xl:max-w-[420px] rounded-[28px] sm:rounded-[32px] bg-white/40 dark:bg-white/10 p-2 sm:p-2.5 backdrop-blur-xl border border-white/70 dark:border-white/15 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.2)]">
+    <div className="relative w-full max-w-[390px] sm:max-w-[420px] lg:w-[421px] lg:max-w-[421px] lg:shrink-0 xl:w-[454px] xl:max-w-[454px] rounded-[28px] sm:rounded-[32px] bg-white/40 dark:bg-white/10 p-2 sm:p-2.5 backdrop-blur-xl border border-white/70 dark:border-white/15 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.2)]">
       {/* Inner Frosted Cream Card */}
       <div className="relative rounded-[22px] sm:rounded-[26px] bg-[#fcfaf6]/94 dark:bg-[#16233d]/94 p-5 sm:p-6 lg:p-6 border border-[#ede6dc]/90 dark:border-white/10 shadow-inner flex flex-col">
      
 
-        {/* Form Title */}
-        <h2 className="font-serif text-[26px] sm:text-[30px] font-normal leading-tight tracking-tight text-[#171513] dark:text-[#f7f3ec]">
-          Your Details
-        </h2>
-
-        {/* Subtitle */}
-        <p className="mt-0.5 text-[11px] sm:text-[12px] text-[#736d63] dark:text-[#a8a094] font-normal leading-tight">
-          Please provide the following information to stay in touch.
-        </p>
+        {/* Form Title — matches new ONZONE creative */}
+        <div className="flex flex-col items-center text-center select-none">
+          <span className="h-[1.5px] w-10 bg-[#c5a46d]" />
+          <h2 className="mt-2 font-serif text-[26px] sm:text-[30px] font-semibold leading-tight tracking-tight text-[#171513] dark:text-[#f7f3ec]">
+            Share Your Details
+          </h2>
+          <span className="mt-2 h-[1.5px] w-10 bg-[#c5a46d]" />
+        </div>
 
         {/* Form Interactive Fields */}
         <form
@@ -157,14 +156,14 @@ export const DetailsForm: FC = () => {
             )}
           />
 
-          {/* Continue Button */}
+          {/* Submit Button */}
           <button
             type="submit"
             disabled={isSubmitDisabled}
-            className="group btn-shine mt-3.5 sm:mt-4 flex h-[44px] sm:h-[48px] w-full items-center justify-center gap-2 rounded-full bg-[#181615] hover:bg-[#2a2622] text-[#f7f3ec] shadow-md transition-all duration-300 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-60 cursor-pointer"
+            className="group btn-shine mt-3.5 sm:mt-4 flex h-[44px] sm:h-[48px] w-full items-center justify-center gap-2 rounded-full bg-[#181615] hover:bg-[#2a2622] text-[#f7f3ec] shadow-md transition-all duration-300 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-60 cursor-pointer ring-1 ring-[#c5a46d]/60"
           >
             <span className="font-serif text-[15px] sm:text-[16px] font-normal italic tracking-wide">
-              {createFormData.isPending ? 'Submitting…' : 'Continue'}
+              {createFormData.isPending ? 'Submitting…' : 'Submit Details'}
             </span>
             {!createFormData.isPending && (
               <ArrowRight

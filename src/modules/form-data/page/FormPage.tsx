@@ -16,59 +16,90 @@ export const FormPage: FC = () => {
           className="h-full w-full object-cover object-center"
         />
         {/* Left gradient overlay ensuring contrast on desktop */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#f7f3ec]/90 via-[#f7f3ec]/50 to-transparent lg:w-[48%] dark:from-[#0e1a30]/92 dark:via-[#0e1a30]/60 dark:to-transparent hidden lg:block" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#f7f3ec]/92 via-[#f7f3ec]/55 to-transparent lg:w-[52%] dark:from-[#0e1a30]/95 dark:via-[#0e1a30]/65 dark:to-transparent hidden lg:block" />
       </div>
 
       {/* ============================================================== */}
       {/* 2. DESKTOP FULL-SCREEN COMPOSITION (lg and xl displays)         */}
+      {/*    Matches new creative: Hi, This is ONZONE. / Share Your Details */}
       {/* ============================================================== */}
-      <div className="relative z-10 hidden lg:flex lg:h-screen lg:w-full lg:overflow-hidden flex-col justify-between">
+      <div className="relative z-10 hidden lg:flex lg:min-h-screen lg:w-full flex-col justify-between">
         {/* Top Header Bar */}
         <header className="flex w-full items-start justify-between px-8 sm:px-12 lg:px-14 xl:px-16 pt-6 xl:pt-8 select-none">
           <BrandLogo />
+          <div className="flex items-center gap-4 pt-2">
+            <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#8b6a3e] dark:text-[#c5a46d] font-medium">
+              Let&apos;s stay connected
+            </span>
+            <span className="h-[1px] w-16 bg-[#c5a46d]" />
+          </div>
         </header>
 
         {/* Main Split: Left Editorial Text & Right Form Card */}
-        <main className="flex flex-1 items-center justify-between px-8 sm:px-12 lg:px-14 xl:px-16 pb-4">
-          {/* Left Side: Eyebrow + Headline + Description + Benefits + Signature */}
+        <main className="flex flex-1 items-center justify-between gap-6 xl:gap-10 px-8 sm:px-12 lg:px-10 xl:px-16 pb-6">
+          {/* Left Side: Eyebrow + Headline + Description + Benefits + Thank-you */}
           <section
             aria-label="Editorial Introduction"
-            className="flex max-w-[440px] xl:max-w-[480px] flex-col items-start"
+            className="flex max-w-[400px] xl:max-w-[500px] flex-col items-start"
           >
-            {/* Eyebrow: MORE THAN FASHION ───── */}
+            {/* Eyebrow: STYLE | QUALITY | YOU */}
             <div className="flex items-center gap-3">
-              <span className="font-mono text-[11px] sm:text-xs uppercase tracking-[0.26em] text-[#8b6a3e] dark:text-[#c5a46d] font-semibold">
-                MORE THAN FASHION
+              <span className="font-mono text-[11px] sm:text-xs uppercase tracking-[0.26em] text-[#8b6a3e] dark:text-[#c5a46d] font-medium">
+                Style &nbsp;|&nbsp; Quality &nbsp;|&nbsp; You
               </span>
-              <span className="h-[1px] w-12 xl:w-16 bg-[#c5a46d]" />
             </div>
 
-            {/* Headline: Let's Get Connected (stacked, font-weight 400) */}
-            <h1 className="mt-3 font-serif text-[46px] sm:text-[52px] xl:text-[62px] leading-[0.98] tracking-tight text-[#171513] dark:text-[#f7f3ec] font-normal">
-              <span>Let&apos;s Get</span>
+            {/* Headline: Hi, This is ONZONE. */}
+            <h1 className="mt-3 font-serif text-[52px] xl:text-[68px] leading-[0.98] tracking-tight text-[#171513] dark:text-[#f7f3ec] font-normal">
+              <span>Hi,</span>
               <br />
-              <span className="italic bg-gradient-to-r from-[#8b6a3e] via-[#c5a46d] to-[#735429] bg-clip-text text-transparent">
-                Connected
+              <span>This is</span>
+              <br />
+              <span className="bg-gradient-to-r from-[#8b6a3e] via-[#a98552] to-[#735429] bg-clip-text text-transparent">
+                ONZONE.
               </span>
             </h1>
+            <span className="mt-4 h-[1.5px] w-14 bg-[#c5a46d]" />
 
             {/* Description */}
-            <p className="mt-3 max-w-[410px] text-[13px] sm:text-[14px] leading-[1.6] text-[#605b53] dark:text-[#c7bfb3] font-normal">
-              Share a few details with us and be the first to know about our latest collections,
-              exclusive offers and special updates.
+            <p className="mt-3 max-w-[420px] text-[13px] sm:text-[14px] leading-[1.6] font-normal">
+              <span className="font-semibold text-[#171513] dark:text-[#f7f3ec]">
+                We are updating our database.
+              </span>
+              <br />
+              <span className="text-[#605b53] dark:text-[#c7bfb3]">
+                Please fill out this form with your details.
+              </span>
             </p>
 
-            {/* 3 Value Propositions */}
-            <div className="mt-5">
+            {/* 4 Value Propositions */}
+            <div className="mt-6 w-full max-w-[440px]">
               <BenefitsList />
             </div>
           </section>
 
-          {/* Right Side: Form Card */}
-          <div className="flex items-center gap-8 xl:gap-12">
-            <section aria-label="Registration Form" className="relative z-20">
+          {/* Right Side: Form Card + vertical side captions */}
+          <div className="flex shrink-0 items-center gap-8 xl:gap-10">
+            <section aria-label="Registration Form" className="relative z-20 shrink-0">
               <DetailsForm />
             </section>
+
+            {/* Vertical captions — Fashion beyond trends / People Style Onzone */}
+            <div className="hidden xl:flex flex-col items-center justify-between self-stretch py-6 select-none">
+              <span
+                className="font-mono text-[9px] uppercase tracking-[0.32em] text-[#8b6a3e] dark:text-[#c5a46d]/90"
+                style={{ writingMode: 'vertical-rl' }}
+              >
+                Fashion &nbsp; Beyond &nbsp; Trends
+              </span>
+              <span className="h-16 w-[1px] bg-[#c5a46d]/60" />
+              <span
+                className="font-mono text-[9px] uppercase tracking-[0.32em] text-[#8b6a3e] dark:text-[#c5a46d]/90"
+                style={{ writingMode: 'vertical-rl' }}
+              >
+                People &nbsp; Style &nbsp; Onzone
+              </span>
+            </div>
           </div>
         </main>
       </div>
@@ -83,26 +114,34 @@ export const FormPage: FC = () => {
         {/* Top Mobile Bar */}
         <header className="sticky top-0 z-30 flex items-center justify-between border-b border-[#ded8ce]/70 dark:border-white/10 bg-[#f7f3ec]/85 dark:bg-[#0e1a30]/85 backdrop-blur-md px-5 py-3.5 shadow-xs">
           <BrandLogo />
+          <span className="font-mono text-[9px] uppercase tracking-[0.24em] text-[#8b6a3e] dark:text-[#c5a46d] font-medium">
+            Let&apos;s stay connected
+          </span>
         </header>
 
         <div className="flex flex-col px-5 sm:px-8 py-5 space-y-6 max-w-lg mx-auto w-full">
           {/* Mobile Editorial Heading */}
           <div className="flex flex-col items-start text-left pt-1">
             <div className="flex items-center gap-2.5">
-              <span className="font-mono text-[10px] uppercase tracking-[0.26em] text-[#8b6a3e] dark:text-[#c5a46d] font-semibold">
-                MORE THAN FASHION
+              <span className="font-mono text-[10px] uppercase tracking-[0.26em] text-[#8b6a3e] dark:text-[#c5a46d] font-medium">
+                Style &nbsp;|&nbsp; Quality &nbsp;|&nbsp; You
               </span>
-              <span className="h-[1px] w-8 bg-[#c5a46d]" />
             </div>
-            <h1 className="mt-2 font-serif text-[34px] sm:text-[38px] leading-[1.02] tracking-tight text-[#171513] dark:text-[#f7f3ec] font-normal">
-              <span>Let&apos;s Get</span>{' '}
-              <span className="italic bg-gradient-to-r from-[#8b6a3e] via-[#c5a46d] to-[#735429] bg-clip-text text-transparent">
-                Connected
+            <h1 className="mt-2 font-serif text-[40px] sm:text-[44px] leading-[1.0] tracking-tight text-[#171513] dark:text-[#f7f3ec] font-normal">
+              <span>Hi,</span>
+              <br />
+              <span>This is</span>{' '}
+              <span className="bg-gradient-to-r from-[#8b6a3e] via-[#a98552] to-[#735429] bg-clip-text text-transparent">
+                ONZONE.
               </span>
             </h1>
-            <p className="mt-2 text-[13px] leading-relaxed text-[#605b53] dark:text-[#c7bfb3] font-normal">
-              Share a few details with us and be the first to know about our latest collections,
-              exclusive offers and special updates.
+            <p className="mt-2 text-[13px] leading-relaxed font-normal">
+              <span className="font-semibold text-[#171513] dark:text-[#f7f3ec]">
+                We are updating our database.{' '}
+              </span>
+              <span className="text-[#605b53] dark:text-[#c7bfb3]">
+                Please fill out this form with your details.
+              </span>
             </p>
           </div>
 
@@ -122,9 +161,24 @@ export const FormPage: FC = () => {
             </div>
           </div>
 
-          {/* Benefits List */}
+          {/* Benefits — 4 items */}
           <div className="w-full">
             <BenefitsList />
+          </div>
+
+          {/* Mobile Thank-you signature (desktop version lives inside BenefitsList) */}
+          <div className="lg:hidden flex justify-start select-none -mt-1">
+            <div className="inline-flex flex-col items-center text-center -rotate-3 origin-bottom-left">
+              <p className="font-['Great_Vibes'] text-[38px] leading-none text-[#a98552]">
+                Thank you
+              </p>
+              <p className="mt-1 font-mono text-[9px] tracking-[0.3em] uppercase text-[#77736d] dark:text-[#a8a094] text-center leading-relaxed">
+                For being a part
+                <br />
+                of Onzone
+              </p>
+              <span className="mt-2 block h-[1.5px] w-14 bg-[#c5a46d]" />
+            </div>
           </div>
 
           {/* Form Card */}
@@ -135,7 +189,7 @@ export const FormPage: FC = () => {
           {/* Mobile Footer */}
           <footer className="text-center pb-6 select-none">
             <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-[#77736d] dark:text-[#a8a094]">
-              FASHION &nbsp;|&nbsp; PEOPLE &nbsp;|&nbsp; A BRIGHTER YOU
+              Fashion &nbsp;|&nbsp; People &nbsp;|&nbsp; Style Onzone
             </p>
           </footer>
         </div>
